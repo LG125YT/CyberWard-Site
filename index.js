@@ -21,7 +21,8 @@ app.use("/", (req, res) => {
         //Issue: You cannot go to https://cyberward.xyz/LG125YT without the css not being fetched (If you append a forward slash to the end of the url, it works fine). This is the solution.
         //It feels like a hack, but I can't find any other way to fix this.
         if (path === "/LG125YT") {
-            res.sendFile(absolute('LG125YT/index.html'))
+            res.sendFile(absolute('LG125YT/index.html'));
+            return;
         }
 
         res.sendFile(absolute(path));
