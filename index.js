@@ -14,6 +14,13 @@ app.use("/", (req, res) => {
         res.sendFile(absolute('index.html'));
         return;
     } else {
+
+        if (req.headers.referer) {
+            if (req.headers.referer.endsWith("/LG125YT")) {
+                path = `/LG125YT/${path}`
+            }
+        }
+
         if (path.startsWith("//")) {
             path = path.replace("^\/\/","/")
         }
